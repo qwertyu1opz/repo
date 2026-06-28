@@ -61,6 +61,17 @@ def extract_control_info(deb_path):
                             if control_file:
                                 return control_file.read().decode('utf-8', errors='ignore')
     return None
+import re
+
+def version_key(v_str):
+    parts = re.split(r'[^a-zA-Z0-9]', v_str)
+    key_parts = []
+    for p in parts:
+        if p.isdigit():
+            key_parts.append((0, int(p)))
+        else:
+            key_parts.append((1, p))
+    return key_parts
 
 def main():
     # Change working directory to the folder containing this script
@@ -77,7 +88,7 @@ def main():
         print("No .deb packages found in 'debs/' folder.")
         # We will create empty index files or write placeholders
     
-    packages_entries = []
+    latest_packages = {}
     for deb_file in sorted(deb_files):
         deb_path = os.path.join(debs_dir, deb_file)
         try:
@@ -87,24 +98,55 @@ def main():
                 print(f"Warning: 'control' file not found in {deb_file}. Skipping.")
                 continue
             
-            # Format and clean control block
-            lines = [line.rstrip() for line in control_content.splitlines() if line.strip()]
+            # Parse package ID and version from control content
+            package_id = None
+            version = None
+            control_lines = []
             
+            for line in control_content.splitlines():
+                if not line.strip():
+                    continue
+                control_lines.append(line.rstrip())
+                
+                # Check for Package and Version fields
+                if line.startswith("Package:"):
+                    package_id = line.split(":", 1)[1].strip()
+                elif line.startswith("Version:"):
+                    version = line.split(":", 1)[1].strip()
+            
+            if not package_id or not version:
+                print(f"Warning: Missing Package or Version field in {deb_file}. Skipping.")
+                continue
+                
             # Compute file properties
             size, md5, sha1, sha256 = get_hashes_and_size(deb_path)
             
-            # Add relative filename and hashes
-            lines.append(f"Filename: debs/{deb_file}")
-            lines.append(f"Size: {size}")
-            lines.append(f"MD5sum: {md5}")
-            lines.append(f"SHA1: {sha1}")
-            lines.append(f"SHA256: {sha256}")
+            # Append hashes to lines
+            entry_lines = list(control_lines)
+            entry_lines.append(f"Filename: debs/{deb_file}")
+            entry_lines.append(f"Size: {size}")
+            entry_lines.append(f"MD5sum: {md5}")
+            entry_lines.append(f"SHA1: {sha1}")
+            entry_lines.append(f"SHA256: {sha256}")
+            entry_str = "\n".join(entry_lines)
             
-            packages_entries.append("\n".join(lines))
+            # Compare and update dictionary
+            v_key = version_key(version)
+            if package_id not in latest_packages or v_key > latest_packages[package_id]['key']:
+                latest_packages[package_id] = {
+                    'key': v_key,
+                    'version': version,
+                    'entry': entry_str,
+                    'file': deb_file
+                }
+            else:
+                print(f"Skipping older version {version} of {package_id} (current latest is {latest_packages[package_id]['version']})")
+                
         except Exception as e:
             print(f"Error processing {deb_file}: {e}")
             
     # Write Packages index
+    packages_entries = [latest_packages[pid]['entry'] for pid in sorted(latest_packages.keys())]
     packages_content = "\n\n".join(packages_entries)
     if packages_entries:
         packages_content += "\n" # Add trailing newline
