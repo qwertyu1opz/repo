@@ -5,13 +5,13 @@ Author: you
 Section: Applications
 Depends: firmware (>= 5.0), unzip, com.autopear.installipa
 Architecture: iphoneos-arm
-Version: 0.0.7-3+debug
+Version: 0.0.7-4+debug
 Installed-Size: 864
-Filename: debs/com.example.filastore_0.0.7-3+debug_iphoneos-arm.deb
-Size: 707050
-MD5sum: 8827acf76d9009f86611facd52ae7f33
-SHA1: ce8c0efc96ee656eafd99c11d817df4fb2844ec3
-SHA256: 7b3129a8ba808ac906c4b725a1f1b9d301d90e591430a30d6a8837cae9ac3e53
+Filename: debs/com.example.filastore_0.0.7-4+debug_iphoneos-arm.deb
+Size: 707074
+MD5sum: e8353721d2d50f6494747c554c33a21d
+SHA1: a6af1d46214f032d6bd26868a2259777097b2474
+SHA256: bc1468f49b4b01b4893d6a020d935b9624242eac096ea75f0c73d52cdecb5a89
 
 Package: com.example.filastore
 Name: FilaStore

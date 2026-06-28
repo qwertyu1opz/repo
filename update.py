@@ -63,6 +63,10 @@ def extract_control_info(deb_path):
     return None
 
 def main():
+    # Change working directory to the folder containing this script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    os.chdir(script_dir)
+    
     debs_dir = 'debs'
     if not os.path.exists(debs_dir):
         os.makedirs(debs_dir)
