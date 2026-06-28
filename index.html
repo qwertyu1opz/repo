@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Некромантия iOS 5 — Cydia Репозиторий</title>
+    <link rel="icon" type="image/png" href="CydiaIcon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #07020d;
+            --card-bg: rgba(20, 10, 35, 0.7);
+            --border-color: rgba(147, 51, 234, 0.3);
+            --glow-color: rgba(57, 255, 20, 0.4);
+            --text-primary: #f3e8ff;
+            --text-secondary: #c084fc;
+            --accent-green: #39ff14;
+            --accent-purple: #a855f7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(88, 28, 135, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(57, 255, 20, 0.05) 0%, transparent 40%);
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating magic dust */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-green);
+            opacity: 0.3;
+            animation: floatUp 15s infinite linear;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 40px 20px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .repo-icon-container {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .repo-icon {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            object-fit: cover;
+            border: 2px solid var(--accent-purple);
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .repo-icon-container::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 35px;
+            border: 1px dashed var(--accent-green);
+            opacity: 0.5;
+            animation: rotateDashed 20s linear infinite;
+        }
+
+        @keyframes rotateDashed {
+            100% { transform: rotate(360deg); }
+        }
+
+        header:hover .repo-icon {
+            transform: scale(1.08) rotate(3deg);
+            box-shadow: 0 0 35px var(--accent-green);
+            border-color: var(--accent-green);
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-shadow: 
+                0 0 10px rgba(168, 85, 247, 0.8),
+                0 0 20px rgba(57, 255, 20, 0.3);
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(57, 255, 20, 0.3);
+            box-shadow: 0 10px 40px rgba(57, 255, 20, 0.1);
+        }
+
+        .card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+            padding-bottom: 10px;
+        }
+
+        .card-title::before {
+            content: '❖';
+            color: var(--accent-green);
+            text-shadow: 0 0 5px var(--accent-green);
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .cydia-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            background: linear-gradient(135deg, #7c3aed, #4c1d95);
+            border: 1px solid rgba(168, 85, 247, 0.5);
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 16px 24px;
+            border-radius: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+            margin-top: 10px;
+        }
+
+        .cydia-btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--accent-green), #059669);
+            color: #000000;
+            font-weight: 800;
+            border-color: var(--accent-green);
+            box-shadow: 0 6px 25px rgba(57, 255, 20, 0.5);
+        }
+
+        .url-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 10px;
+            padding: 12px 15px;
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: var(--accent-green);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            word-break: break-all;
+        }
+
+        .copy-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+            margin-left: 10px;
+            flex-shrink: 0;
+        }
+
+        .copy-btn:hover {
+            color: #ffffff;
+            background: rgba(168, 85, 247, 0.2);
+            border-color: var(--accent-purple);
+        }
+
+        /* Package list styling */
+        .package-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .package-item {
+            background: rgba(15, 7, 27, 0.5);
+            border: 1px solid rgba(168, 85, 247, 0.15);
+            border-radius: 12px;
+            padding: 15px;
+            transition: all 0.2s ease;
+        }
+
+        .package-item:hover {
+            border-color: rgba(57, 255, 20, 0.2);
+            background: rgba(15, 7, 27, 0.8);
+            transform: translateX(3px);
+        }
+
+        .package-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 5px;
+        }
+
+        .package-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .package-version {
+            font-size: 0.85rem;
+            background: rgba(168, 85, 247, 0.2);
+            color: var(--text-secondary);
+            padding: 2px 8px;
+            border-radius: 20px;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .package-id {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .package-desc {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            opacity: 0.9;
+        }
+
+        .no-packages {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 40px 20px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(192, 132, 252, 0.5);
+            z-index: 10;
+        }
+
+        footer a {
+            color: var(--accent-green);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 20px;
+            }
+            .repo-icon-container {
+                width: 110px;
+                height: 110px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <header>
+            <div class="repo-icon-container">
+                <img src="CydiaIcon.png" alt="Icon" class="repo-icon">
+            </div>
+            <h1>некромантия ios 5</h1>
+            <div class="subtitle">Легендарный репозиторий темной магии</div>
+        </header>
+
+        <!-- Main Add to Cydia Card -->
+        <main class="card">
+            <h2 class="card-title">Установка репозитория</h2>
+            <p>
+                Добро пожаловать в <strong>Некромантию iOS 5</strong> — приватное хранилище твиков и тем для классических устройств Apple под управлением iOS 5 и выше.
+            </p>
+            <p>
+                Нажмите кнопку ниже на вашем iOS-устройстве, чтобы автоматически добавить репозиторий в Cydia, или скопируйте ссылку и добавьте её вручную.
+            </p>
+            
+            <a href="#" id="cydia-link" class="cydia-btn">
+                <span>Добавить в Cydia</span>
+            </a>
+
+            <div class="url-box">
+                <span id="repo-url">https://qwertyu1opz.github.io/repo/</span>
+                <button class="copy-btn" id="copy-btn">Копировать</button>
+            </div>
+        </main>
+
+        <!-- Dynamic Package List Card -->
+        <section class="card">
+            <h2 class="card-title">Доступные заклинания (.deb)</h2>
+            <div class="package-list" id="package-list">
+                <div class="no-packages">Загрузка заклинаний из репозитория...</div>
+            </div>
+        </section>
+
+        <!-- Help instructions -->
+        <section class="card">
+            <h2 class="card-title">Инструкция по ручной установке</h2>
+            <p>1. Откройте <strong>Cydia</strong> на вашем устройстве.</p>
+            <p>2. Перейдите во вкладку <strong>Источники</strong> (Sources) внизу.</p>
+            <p>3. Нажмите кнопку <strong>Правка</strong> (Edit) в правом верхнем углу, а затем <strong>Добавить</strong> (Add) в левом.</p>
+            <p>4. Введите адрес репозитория и нажмите <strong>Добавить источник</strong>.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 некромантия ios 5. Сделано с темной душой.</p>
+    </footer>
+
+    <script>
+        // Generate floating particles
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 25;
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.animationDelay = `${Math.random() * 15}s`;
+            particle.style.animationDuration = `${10 + Math.random() * 10}s`;
+            const size = `${1 + Math.random() * 4}px`;
+            particle.style.width = size;
+            particle.style.height = size;
+            particlesContainer.appendChild(particle);
+        }
+
+        // Dynamically get and display the correct repository URL
+        let repoUrl = window.location.href;
+        // Strip out trailing index.html if present
+        if (repoUrl.endsWith('index.html')) {
+            repoUrl = repoUrl.slice(0, -10);
+        }
+        // Ensure trailing slash
+        if (!repoUrl.endsWith('/')) {
+            repoUrl += '/';
+        }
+
+        // Update elements
+        document.getElementById('repo-url').textContent = repoUrl;
+        document.getElementById('cydia-link').href = `cydia://url/action/add-repository?url=${encodeURIComponent(repoUrl)}`;
+
+        // Copy button action
+        document.getElementById('copy-btn').addEventListener('click', function() {
+            navigator.clipboard.writeText(repoUrl).then(() => {
+                this.textContent = 'Скопировано!';
+                setTimeout(() => {
+                    this.textContent = 'Копировать';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+
+        // Parse Packages file to display available packages
+        fetch('Packages')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Packages file not found or inaccessible');
+                }
+                return response.text();
+            })
+            .then(text => {
+                const packageListDiv = document.getElementById('package-list');
+                
+                // Parse control blocks
+                const blocks = text.split('\n\n');
+                const packages = [];
+                
+                blocks.forEach(block => {
+                    if (!block.trim()) return;
+                    const pkg = {};
+                    const lines = block.split('\n');
+                    
+                    lines.forEach(line => {
+                        const colonIndex = line.indexOf(':');
+                        if (colonIndex !== -1) {
+                            const key = line.substring(0, colonIndex).trim();
+                            const val = line.substring(colonIndex + 1).trim();
+                            pkg[key] = val;
+                        }
+                    });
+                    
+                    if (pkg.Package) {
+                        packages.push(pkg);
+                    }
+                });
+
+                if (packages.length === 0) {
+                    packageListDiv.innerHTML = `
+                        <div class="no-packages">
+                            Свитки пока пусты. Положите .deb файлы в папку <code>debs/</code> и запустите <code>python3 update.py</code>!
+                        </div>`;
+                    return;
+                }
+
+                // Render packages
+                packageListDiv.innerHTML = '';
+                packages.forEach(pkg => {
+                    const item = document.createElement('div');
+                    item.className = 'package-item';
+                    
+                    const name = pkg.Name || pkg.Package;
+                    const version = pkg.Version || '1.0';
+                    const id = pkg.Package;
+                    const desc = pkg.Description || 'Описание отсутствует.';
+                    
+                    item.innerHTML = `
+                        <div class="package-header">
+                            <span class="package-name">${escapeHtml(name)}</span>
+                            <span class="package-version">${escapeHtml(version)}</span>
+                        </div>
+                        <div class="package-id">${escapeHtml(id)}</div>
+                        <div class="package-desc">${escapeHtml(desc)}</div>
+                    `;
+                    packageListDiv.appendChild(item);
+                });
+            })
+            .catch(err => {
+                console.warn(err);
+                document.getElementById('package-list').innerHTML = `
+                    <div class="no-packages">
+                        Свитки пока пусты. Положите .deb файлы в папку <code>debs/</code> и запустите <code>python3 update.py</code>!
+                    </div>`;
+            });
+
+        function escapeHtml(str) {
+            return str
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+    </script>
+</body>
+</html>

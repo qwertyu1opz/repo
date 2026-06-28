@@ -1,0 +1,42 @@
+name: Update Cydia Repository Indexes
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'debs/**'
+      - 'update.py'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run update script
+        run: |
+          python3 update.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add Packages Packages.gz Packages.bz2 Release
+          if git diff --staged --quiet; then
+            echo "No changes in repository indexes."
+          else
+            git commit -m "chore: regenerate Cydia indexes [skip ci]"
+            git push
+          fi
