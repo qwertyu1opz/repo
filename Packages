@@ -5,25 +5,10 @@ Author: you
 Section: Applications
 Depends: firmware (>= 5.0), unzip, com.autopear.installipa
 Architecture: iphoneos-arm
-Version: 0.0.7-8+debug
-Installed-Size: 908
-Filename: debs/com.example.filastore_0.0.7-8+debug_iphoneos-arm.deb
-Size: 717694
-MD5sum: 15489e0d5066d34dfcdc5305cc99cc0e
-SHA1: 5afa75b85e03f4e47ac5d7d0911e473212188d48
-SHA256: c270590f7bf8774ee85404fd85f0f052c98f114a5ff920826df5c2b9512afe3c
-
-Package: com.example.filastore
-Name: FilaStore
-Description: A clean App-Store-style .ipa manager: search archive.org and install over HTTPS, sideload local or URL packages as removable apps, browse your library and uninstall (iOS 5)
-Author: you
-Section: Applications
-Depends: firmware (>= 5.0), unzip, com.autopear.installipa
-Architecture: iphoneos-arm
-Version: 0.0.7-2+debug
-Installed-Size: 252
-Filename: debs/filastore-0.0.7.deb
-Size: 74704
-MD5sum: 0297cb5aec6f1cf25d8f351171f15af7
-SHA1: 713f8224ba45e5026dce678f725f95269c8ae85c
-SHA256: bafece021ef6816deb33d31df49e87a154e8275d8efc3c22d9799357271780d7
+Version: 0.0.8-1+debug
+Installed-Size: 932
+Filename: debs/filastore-0.0.8.deb
+Size: 730272
+MD5sum: 60474850cf636a78c4e81cc37c1af08a
+SHA1: dd8acafb87d8b82839a31e604499abe4cf301322
+SHA256: d67706b634d63941bcf09a0863e411e8001013e11a7eec40cd850b79c8ccfd79
