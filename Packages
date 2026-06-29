@@ -20,10 +20,10 @@ Author: you
 Section: Networking
 Depends: firmware (>= 5.0)
 Architecture: iphoneos-arm
-Version: 0.0.5
+Version: 0.0.6
 Installed-Size: 280
-Filename: debs/com.nekro.nekrowarp_0.0.5_iphoneos-arm.deb
-Size: 55448
-MD5sum: 6a6daffde1af724aa8990e4e12a15d12
-SHA1: c7a51c54a34816a23b417ce1967650136833cfb7
-SHA256: ea2478cba4dfca17b0bec1b2cd84d14175ccd4f747cf321cdc1f0da1acbd950f
+Filename: debs/com.nekro.nekrowarp_0.0.6_iphoneos-arm.deb
+Size: 56852
+MD5sum: 8df491ce4df8c1415012508465259d2b
+SHA1: 8f8b77c36c73e33785fe359effc4b6dc354a5398
+SHA256: 9066ade37d5aef8f90b11dbdf9a0bb2bf879f413cfd7093fe14781deb0032fc2
