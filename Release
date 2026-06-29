@@ -7,6 +7,7 @@ Architectures: iphoneos-arm
 Components: main
 Description: Cydia repository for iOS 5 (некромантия ios 5)
 MD5Sum:
+<<<<<<< Updated upstream
  d20ae965df8182afc204b21663aec6cd 1195 Packages
  52d42c207dc0d4b9fa6e5ae590b8b1da 729 Packages.gz
  cfce7e17a4d710e891fd50856ab9fb08 786 Packages.bz2
@@ -18,3 +19,16 @@ SHA256:
  a6b7bdfd59f0b5038ea434ceb062027c88458c34fdaf7f76666bdf3d2cb4400b 1195 Packages
  0ed36df1248192b7ad8a1ecff5aff30f727707b80396714ac27c35c250732a46 729 Packages.gz
  85ffb8cd67783824f2ddd07830dc3244524604797fda314d424ebd67e139efe0 786 Packages.bz2
+=======
+ 0d62222b229d0eff5cb63670034c3743 1075 Packages
+ 819a9ae961f95a1cfce16a29e284535e 680 Packages.gz
+ a675b4e8b75d69cc652d7c02ad536c06 744 Packages.bz2
+SHA1:
+ 131973319be1e4ad8caccf12cd2e71807452d481 1075 Packages
+ 4d8cc8cc1959e0a328048473ddbd965b22f301f2 680 Packages.gz
+ 556a9e132574d7c9753407ee92eb358895091afd 744 Packages.bz2
+SHA256:
+ 74416076a0a7884b56175e4ebd70b1f9481e5f08fd56d6729645f997160d6f31 1075 Packages
+ 0bece32c9d94f345a44b74ca195c14103efe8f9b515e065a87a08b49f30da5a8 680 Packages.gz
+ 375fac1ae3275f97957a792c30c14cc8249dc95a1b0b984de27f4c04dc7253fd 744 Packages.bz2
+>>>>>>> Stashed changes

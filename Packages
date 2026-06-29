@@ -15,15 +15,15 @@ SHA256: 8583a0f7e58f8fdb648217387399e8c0efa8ad81a7b5c33d29d034fca687e6d7
 
 Package: com.nekro.nekrowarp
 Name: NekroWARP
-Description: Native WireGuard/WARP tunnel for jailbroken iOS 5 - terminates the tunnel on-device, no external proxy. Fully functional userspace tunnel with routing and DNS configuration (M5).
-Author: you
+Description: сделано с пивом и под пивом
+Author: QWERTYU1OPZ
 Section: Networking
 Depends: firmware (>= 5.0)
 Architecture: iphoneos-arm
-Version: 0.0.7
+Version: 0.0.8
 Installed-Size: 360
-Filename: debs/com.nekro.nekrowarp_0.0.7_iphoneos-arm.deb
-Size: 97228
-MD5sum: d3348bdcae1b7240477d277fded410b4
-SHA1: a1039b9dfdf1a80f3aeaf27ebd12fd1db9fbf981
-SHA256: 8e727c5936f62834360e97ea08af18f9848d9faa82b83e88c169ebcc3968e046
+Filename: debs/com.nekro.nekrowarp_0.0.8_iphoneos-arm.deb
+Size: 100340
+MD5sum: c56757ff7f9ee7fe015fd0d17ab3d690
+SHA1: 8648674e1ead5cae3210c24ce612d10ed0e192d0
+SHA256: 233c0be497c9c5dda009b2f585ff9ed10863ee87ccff46e27f398f16dbdb90b3
