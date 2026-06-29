@@ -8,13 +8,13 @@ Components: main
 Description: Cydia repository for iOS 5 (некромантия ios 5)
 MD5Sum:
  d20ae965df8182afc204b21663aec6cd 1195 Packages
- 670913c1bc3f29e20d99ac85d04143f1 729 Packages.gz
+ 52d42c207dc0d4b9fa6e5ae590b8b1da 729 Packages.gz
  cfce7e17a4d710e891fd50856ab9fb08 786 Packages.bz2
 SHA1:
  7959a47e9840c6da237a4874f3c0663bce91bb1b 1195 Packages
- adb51f52b2e9729becce9a1690f3f73729401e6d 729 Packages.gz
+ 22789b90c4e04aa3de4897d0f8b999fa92afee7c 729 Packages.gz
  e875d1b918c749d339de2366283a2c5665804198 786 Packages.bz2
 SHA256:
  a6b7bdfd59f0b5038ea434ceb062027c88458c34fdaf7f76666bdf3d2cb4400b 1195 Packages
- 2be409044be43cd0af87a8a7e2993d507290d29acf21404c1b112e0402283bc5 729 Packages.gz
+ 0ed36df1248192b7ad8a1ecff5aff30f727707b80396714ac27c35c250732a46 729 Packages.gz
  85ffb8cd67783824f2ddd07830dc3244524604797fda314d424ebd67e139efe0 786 Packages.bz2
