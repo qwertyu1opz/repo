@@ -1,0 +1,20 @@
+Origin: некромантия ios 5
+Label: некромантия ios 5
+Suite: stable
+Version: 1.0
+Codename: ios5
+Architectures: iphoneos-arm
+Components: main
+Description: Cydia repository for iOS 5 (некромантия ios 5)
+MD5Sum:
+ e4ec71fd733bd170f137260d8e74ebe7 1102 Packages
+ 67a1c2575e03692643825fe2648dd5eb 677 Packages.gz
+ d207755e4ed09c92e168215b8d03fd0f 741 Packages.bz2
+SHA1:
+ 36f0e3ae7133960b2923a72f981bc8bad48b7b0c 1102 Packages
+ 87b49eb1a4e56cf9d133060cc573f6aee769f977 677 Packages.gz
+ c659f6af9ba5fbe8feda61052df7ca2e16530be1 741 Packages.bz2
+SHA256:
+ 8f56aa6adcfff68dcb9491ea21f201783fb48c89a1e294fea3c8b2da61ae9ec1 1102 Packages
+ b808877deace3c0159102d0a4314a7d1b42b56acc03153d0593731fa4a4671c8 677 Packages.gz
+ c761171d105557708abbf3a5625ef9434b8cebecd47757476a7e810413d3efc7 741 Packages.bz2
