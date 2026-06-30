@@ -2,548 +2,417 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Некромантия iOS 5 — Cydia Репозиторий</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>некромантия ios 5 — Cydia</title>
     <link rel="icon" type="image/png" href="CydiaIcon.png">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+    <link rel="apple-touch-icon" href="CydiaIcon.png">
+
     <style>
+        /* ===== iOS 5 skeuomorphic theme ===== */
         :root {
-            --bg-color: #07020d;
-            --card-bg: rgba(20, 10, 35, 0.7);
-            --border-color: rgba(147, 51, 234, 0.3);
-            --glow-color: rgba(57, 255, 20, 0.4);
-            --text-primary: #f3e8ff;
-            --text-secondary: #c084fc;
-            --accent-green: #39ff14;
-            --accent-purple: #a855f7;
+            --nav-blue-top: #aeb9c7;
+            --nav-blue-bot: #7c889a;
+            --cell-sep: #c8c7cc;
+            --group-text: #4a5163;
+            --tint-blue: #1a4ea8;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+
+        html, body {
+            min-height: 100%;
         }
 
         body {
-            background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(88, 28, 135, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(57, 255, 20, 0.05) 0%, transparent 40%);
-            color: var(--text-primary);
-            font-family: 'Outfit', sans-serif;
-            min-height: 100vh;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: #000;
+            /* Classic iOS 5 dark linen background */
+            background-color: #1d1d1d;
+            background-image:
+                radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+                radial-gradient(rgba(0,0,0,0.25) 1px, transparent 1px),
+                repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 2px),
+                repeating-linear-gradient(-45deg, rgba(0,0,0,0.18) 0 1px, transparent 1px 2px),
+                linear-gradient(#2b2b2b, #1a1a1a);
+            background-size: 3px 3px, 3px 3px, 4px 4px, 4px 4px, 100% 100%;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 40px;
+        }
+
+        /* ===== Navigation bar ===== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: 44px;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            overflow-x: hidden;
+            justify-content: center;
+            background:
+                linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0) 48%, rgba(0,0,0,0.06) 52%),
+                linear-gradient(var(--nav-blue-top), var(--nav-blue-bot));
+            border-bottom: 1px solid #3a4252;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+        }
+
+        .navbar h1 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.45);
+            letter-spacing: 0.2px;
+            text-transform: lowercase;
+        }
+
+        /* ===== Content layout ===== */
+        .content {
+            max-width: 560px;
+            margin: 0 auto;
+            padding: 18px 14px;
+        }
+
+        /* App icon header (springboard style) */
+        .icon-header {
+            text-align: center;
+            padding: 14px 0 4px;
+        }
+
+        .app-icon {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            border-radius: 20px;
+            object-fit: cover;
+            background: #000;
+            box-shadow:
+                0 1px 3px rgba(0,0,0,0.6),
+                inset 0 1px 1px rgba(255,255,255,0.25);
             position: relative;
         }
 
-        /* Floating magic dust */
-        .particles {
+        /* glossy shine overlay on icon */
+        .icon-wrap {
+            position: relative;
+            display: inline-block;
+        }
+        .icon-wrap::after {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 2px; left: 2px; right: 2px;
+            height: 46%;
+            border-radius: 18px 18px 40px 40px / 18px 18px 22px 22px;
+            background: linear-gradient(rgba(255,255,255,0.45), rgba(255,255,255,0.05));
             pointer-events: none;
-            z-index: 0;
+        }
+
+        .icon-header .app-name {
+            margin-top: 10px;
+            color: #fff;
+            font-size: 17px;
+            font-weight: bold;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+            text-transform: lowercase;
+        }
+        .icon-header .app-sub {
+            color: #c7c7c7;
+            font-size: 12px;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.8);
+            margin-top: 2px;
+        }
+
+        /* ===== Grouped table view ===== */
+        .group-header {
+            color: #fff;
+            font-size: 13px;
+            font-weight: bold;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.85);
+            padding: 22px 16px 7px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .group {
+            background: #fff;
+            border: 1px solid #a9a9a9;
+            border-radius: 10px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.9);
             overflow: hidden;
         }
 
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: var(--accent-green);
-            border-radius: 50%;
-            box-shadow: 0 0 8px var(--accent-green);
-            opacity: 0.3;
-            animation: floatUp 15s infinite linear;
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(100vh) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.6;
-            }
-            90% {
-                opacity: 0.6;
-            }
-            100% {
-                transform: translateY(-10vh) translateX(50px);
-                opacity: 0;
-            }
-        }
-
-        .container {
-            width: 100%;
-            max-width: 800px;
-            padding: 40px 20px;
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .repo-icon-container {
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 20px;
+        .cell {
             position: relative;
+            padding: 12px 14px;
+            background: linear-gradient(#ffffff, #f2f2f4);
+            border-bottom: 1px solid var(--cell-sep);
+            font-size: 15px;
+            line-height: 1.4;
+            color: #1a1a1a;
+        }
+        .cell:last-child { border-bottom: none; }
+
+        .cell p { margin: 0 0 8px; }
+        .cell p:last-child { margin-bottom: 0; }
+
+        .cell .label {
+            font-weight: bold;
+            color: #000;
+        }
+        .cell .value {
+            color: #8a8a8f;
         }
 
-        .repo-icon {
-            width: 100%;
-            height: 100%;
-            border-radius: 30px;
-            object-fit: cover;
-            border: 2px solid var(--accent-purple);
-            box-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .repo-icon-container::after {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            border-radius: 35px;
-            border: 1px dashed var(--accent-green);
-            opacity: 0.5;
-            animation: rotateDashed 20s linear infinite;
-        }
-
-        @keyframes rotateDashed {
-            100% { transform: rotate(360deg); }
-        }
-
-        header:hover .repo-icon {
-            transform: scale(1.08) rotate(3deg);
-            box-shadow: 0 0 35px var(--accent-green);
-            border-color: var(--accent-green);
-        }
-
-        h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            color: #ffffff;
-            text-shadow: 
-                0 0 10px rgba(168, 85, 247, 0.8),
-                0 0 20px rgba(57, 255, 20, 0.3);
-            margin-bottom: 5px;
-        }
-
-        .subtitle {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .card {
-            background: var(--card-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            border-color: rgba(57, 255, 20, 0.3);
-            box-shadow: 0 10px 40px rgba(57, 255, 20, 0.1);
-        }
-
-        .card-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
-            padding-bottom: 10px;
-        }
-
-        .card-title::before {
-            content: '❖';
-            color: var(--accent-green);
-            text-shadow: 0 0 5px var(--accent-green);
-        }
-
-        p {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            margin-bottom: 15px;
-            color: var(--text-primary);
-        }
-
+        /* ===== Glossy "Add to Cydia" button ===== */
         .cydia-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            width: 100%;
-            background: linear-gradient(135deg, #7c3aed, #4c1d95);
-            border: 1px solid rgba(168, 85, 247, 0.5);
-            color: #ffffff;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            padding: 16px 24px;
-            border-radius: 14px;
-            cursor: pointer;
+            display: block;
             text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
-            margin-top: 10px;
-        }
-
-        .cydia-btn:hover {
-            transform: translateY(-2px);
-            background: linear-gradient(135deg, var(--accent-green), #059669);
-            color: #000000;
-            font-weight: 800;
-            border-color: var(--accent-green);
-            box-shadow: 0 6px 25px rgba(57, 255, 20, 0.5);
-        }
-
-        .url-box {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(168, 85, 247, 0.3);
+            text-align: center;
+            margin: 0;
+            padding: 13px 14px;
+            font-size: 17px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+            border: 1px solid #2c4a78;
             border-radius: 10px;
-            padding: 12px 15px;
-            font-family: monospace;
-            font-size: 0.95rem;
-            color: var(--accent-green);
+            background:
+                linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.05) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1)),
+                linear-gradient(#5b8fd9, #2f5fad);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.5);
+            cursor: pointer;
+        }
+        .cydia-btn:active {
+            background:
+                linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.02) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.18)),
+                linear-gradient(#3f6cb0, #244e90);
+        }
+
+        .btn-group {
+            border: none;
+            background: none;
+            box-shadow: none;
+        }
+
+        /* URL row with copy */
+        .url-cell {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-top: 15px;
+            justify-content: space-between;
+            gap: 8px;
+        }
+        .url-cell .url {
+            font-family: "Courier New", monospace;
+            font-size: 13px;
+            color: var(--tint-blue);
             word-break: break-all;
         }
-
         .copy-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-secondary);
-            cursor: pointer;
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            padding: 4px 8px;
-            border-radius: 4px;
-            border: 1px solid transparent;
-            transition: all 0.2s;
-            margin-left: 10px;
             flex-shrink: 0;
+            font-size: 12px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+            border: 1px solid #6f7787;
+            border-radius: 7px;
+            padding: 6px 11px;
+            background:
+                linear-gradient(rgba(255,255,255,0.5), rgba(0,0,0,0.08)),
+                linear-gradient(#9aa3b2, #767f90);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+            cursor: pointer;
+        }
+        .copy-btn:active {
+            background: linear-gradient(#6f7889, #5b6373);
         }
 
-        .copy-btn:hover {
-            color: #ffffff;
-            background: rgba(168, 85, 247, 0.2);
-            border-color: var(--accent-purple);
-        }
-
-        /* Package list styling */
-        .package-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .package-item {
-            background: rgba(15, 7, 27, 0.5);
-            border: 1px solid rgba(168, 85, 247, 0.15);
-            border-radius: 12px;
-            padding: 15px;
-            transition: all 0.2s ease;
-        }
-
-        .package-item:hover {
-            border-color: rgba(57, 255, 20, 0.2);
-            background: rgba(15, 7, 27, 0.8);
-            transform: translateX(3px);
-        }
-
-        .package-header {
+        /* Package cells */
+        .pkg .pkg-top {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 5px;
+            align-items: baseline;
         }
-
-        .package-name {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #ffffff;
+        .pkg .pkg-name { font-weight: bold; font-size: 16px; }
+        .pkg .pkg-ver {
+            font-size: 12px;
+            color: #fff;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+            background: linear-gradient(#9aa3b2, #767f90);
+            border: 1px solid #6f7787;
+            border-radius: 9px;
+            padding: 1px 8px;
+            margin-left: 8px;
+            flex-shrink: 0;
         }
-
-        .package-version {
-            font-size: 0.85rem;
-            background: rgba(168, 85, 247, 0.2);
-            color: var(--text-secondary);
-            padding: 2px 8px;
-            border-radius: 20px;
-            border: 1px solid rgba(168, 85, 247, 0.3);
+        .pkg .pkg-id {
+            font-family: "Courier New", monospace;
+            font-size: 12px;
+            color: #8a8a8f;
+            margin: 3px 0;
         }
+        .pkg .pkg-desc { font-size: 14px; color: #333; }
 
-        .package-id {
-            font-family: monospace;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-        }
-
-        .package-desc {
-            font-size: 0.95rem;
-            color: var(--text-primary);
-            opacity: 0.9;
-        }
-
-        .no-packages {
+        .loading {
             text-align: center;
-            padding: 30px;
-            color: var(--text-secondary);
+            color: #8a8a8f;
+            font-size: 14px;
             font-style: italic;
         }
 
-        footer {
-            margin-top: auto;
-            padding: 40px 20px 20px;
+        /* Numbered instruction rows */
+        .step .num {
+            display: inline-block;
+            width: 22px; height: 22px;
+            line-height: 22px;
             text-align: center;
-            font-size: 0.9rem;
-            color: rgba(192, 132, 252, 0.5);
-            z-index: 10;
+            margin-right: 8px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 13px;
+            font-weight: bold;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.35);
+            background: linear-gradient(#5b8fd9, #2f5fad);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
         }
 
-        footer a {
-            color: var(--accent-green);
-            text-decoration: none;
+        footer {
+            text-align: center;
+            color: #9a9a9a;
+            font-size: 11px;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.85);
+            padding: 26px 16px 8px;
         }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-            .card {
-                padding: 20px;
-            }
-            .repo-icon-container {
-                width: 110px;
-                height: 110px;
-            }
-        }
+        footer a { color: #cfd8e8; text-decoration: none; }
     </style>
 </head>
 <body>
 
-    <!-- Floating Particles -->
-    <div class="particles" id="particles"></div>
+    <div class="navbar">
+        <h1>некромантия ios 5</h1>
+    </div>
 
-    <div class="container">
-        <header>
-            <div class="repo-icon-container">
-                <img src="CydiaIcon.png" alt="Icon" class="repo-icon">
+    <div class="content">
+
+        <div class="icon-header">
+            <span class="icon-wrap">
+                <img src="CydiaIcon.png" alt="Icon" class="app-icon">
+            </span>
+            <div class="app-name">некромантия ios 5</div>
+            <div class="app-sub">Cydia Repository</div>
+        </div>
+
+        <!-- Install -->
+        <div class="group-header">Установка репозитория</div>
+        <div class="group">
+            <div class="cell">
+                <p>Приватное хранилище твиков и тем для классических устройств Apple под управлением <span class="label">iOS 5</span> и выше.</p>
+                <p class="value" style="margin-bottom:0;">Нажмите кнопку ниже на вашем устройстве, чтобы добавить источник в Cydia автоматически.</p>
             </div>
-            <h1>некромантия ios 5</h1>
-            <div class="subtitle">Легендарный репозиторий темной магии</div>
-        </header>
+        </div>
 
-        <!-- Main Add to Cydia Card -->
-        <main class="card">
-            <h2 class="card-title">Установка репозитория</h2>
-            <p>
-                Добро пожаловать в <strong>Некромантию iOS 5</strong> — приватное хранилище твиков и тем для классических устройств Apple под управлением iOS 5 и выше.
-            </p>
-            <p>
-                Нажмите кнопку ниже на вашем iOS-устройстве, чтобы автоматически добавить репозиторий в Cydia, или скопируйте ссылку и добавьте её вручную.
-            </p>
-            
-            <a href="#" id="cydia-link" class="cydia-btn">
-                <span>Добавить в Cydia</span>
-            </a>
+        <div class="group-header">&nbsp;</div>
+        <div class="group btn-group">
+            <a href="#" id="cydia-link" class="cydia-btn">Добавить в Cydia</a>
+        </div>
 
-            <div class="url-box">
-                <span id="repo-url">https://qwertyu1opz.github.io/repo/</span>
-                <button class="copy-btn" id="copy-btn">Копировать</button>
+        <div class="group-header">Адрес источника</div>
+        <div class="group">
+            <div class="cell url-cell">
+                <span class="url" id="repo-url">https://qwertyu1opz.github.io/repo/</span>
+                <button class="copy-btn" id="copy-btn">Копир.</button>
             </div>
-        </main>
+        </div>
 
-        <!-- Dynamic Package List Card -->
-        <section class="card">
-            <h2 class="card-title">Доступные заклинания (.deb)</h2>
-            <div class="package-list" id="package-list">
-                <div class="no-packages">Загрузка заклинаний из репозитория...</div>
-            </div>
-        </section>
+        <!-- Packages -->
+        <div class="group-header">Доступные пакеты (.deb)</div>
+        <div class="group" id="package-list">
+            <div class="cell loading">Загрузка пакетов из репозитория…</div>
+        </div>
 
-        <!-- Help instructions -->
-        <section class="card">
-            <h2 class="card-title">Инструкция по ручной установке</h2>
-            <p>1. Откройте <strong>Cydia</strong> на вашем устройстве.</p>
-            <p>2. Перейдите во вкладку <strong>Источники</strong> (Sources) внизу.</p>
-            <p>3. Нажмите кнопку <strong>Правка</strong> (Edit) в правом верхнем углу, а затем <strong>Добавить</strong> (Add) в левом.</p>
-            <p>4. Введите адрес репозитория и нажмите <strong>Добавить источник</strong>.</p>
-        </section>
+        <!-- Manual -->
+        <div class="group-header">Ручная установка</div>
+        <div class="group">
+            <div class="cell step"><span class="num">1</span>Откройте <span class="label">Cydia</span> на устройстве.</div>
+            <div class="cell step"><span class="num">2</span>Перейдите во вкладку <span class="label">Источники</span> (Sources).</div>
+            <div class="cell step"><span class="num">3</span>Нажмите <span class="label">Правка</span>, затем <span class="label">Добавить</span>.</div>
+            <div class="cell step"><span class="num">4</span>Введите адрес источника и нажмите <span class="label">Добавить источник</span>.</div>
+        </div>
+
     </div>
 
     <footer>
-        <p>&copy; 2026 некромантия ios 5. Сделано с темной душой.</p>
+        <p>&copy; 2026 некромантия ios 5 · <a href="https://github.com/qwertyu1opz/repo">GitHub</a></p>
     </footer>
 
     <script>
-        // Generate floating particles
-        const particlesContainer = document.getElementById('particles');
-        const particleCount = 25;
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            particle.style.left = `${Math.random() * 100}vw`;
-            particle.style.animationDelay = `${Math.random() * 15}s`;
-            particle.style.animationDuration = `${10 + Math.random() * 10}s`;
-            const size = `${1 + Math.random() * 4}px`;
-            particle.style.width = size;
-            particle.style.height = size;
-            particlesContainer.appendChild(particle);
-        }
-
-        // Dynamically get and display the correct repository URL
+        // Resolve repository URL dynamically
         let repoUrl = window.location.href;
-        // Strip out trailing index.html if present
-        if (repoUrl.endsWith('index.html')) {
-            repoUrl = repoUrl.slice(0, -10);
-        }
-        // Ensure trailing slash
-        if (!repoUrl.endsWith('/')) {
-            repoUrl += '/';
-        }
+        if (repoUrl.endsWith('index.html')) repoUrl = repoUrl.slice(0, -10);
+        if (!repoUrl.endsWith('/')) repoUrl += '/';
 
-        // Update elements
         document.getElementById('repo-url').textContent = repoUrl;
-        document.getElementById('cydia-link').href = `cydia://url/action/add-repository?url=${encodeURIComponent(repoUrl)}`;
+        document.getElementById('cydia-link').href =
+            'cydia://url/action/add-repository?url=' + encodeURIComponent(repoUrl);
 
-        // Copy button action
-        document.getElementById('copy-btn').addEventListener('click', function() {
-            navigator.clipboard.writeText(repoUrl).then(() => {
-                this.textContent = 'Скопировано!';
-                setTimeout(() => {
-                    this.textContent = 'Копировать';
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-            });
+        // Copy to clipboard
+        document.getElementById('copy-btn').addEventListener('click', function () {
+            const btn = this;
+            navigator.clipboard.writeText(repoUrl).then(function () {
+                btn.textContent = 'Готово';
+                setTimeout(function () { btn.textContent = 'Копир.'; }, 2000);
+            }).catch(function (err) { console.error('Copy failed', err); });
         });
 
-        // Parse Packages file to display available packages
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        // Load and render packages from the Packages index
         fetch('Packages')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Packages file not found or inaccessible');
-                }
-                return response.text();
-            })
-            .then(text => {
-                const packageListDiv = document.getElementById('package-list');
-                
-                // Parse control blocks
-                const blocks = text.split('\n\n');
+            .then(function (r) { if (!r.ok) throw new Error('no Packages'); return r.text(); })
+            .then(function (text) {
+                const list = document.getElementById('package-list');
                 const packages = [];
-                
-                blocks.forEach(block => {
+                text.split('\n\n').forEach(function (block) {
                     if (!block.trim()) return;
                     const pkg = {};
-                    const lines = block.split('\n');
-                    
-                    lines.forEach(line => {
-                        const colonIndex = line.indexOf(':');
-                        if (colonIndex !== -1) {
-                            const key = line.substring(0, colonIndex).trim();
-                            const val = line.substring(colonIndex + 1).trim();
-                            pkg[key] = val;
-                        }
+                    block.split('\n').forEach(function (line) {
+                        const i = line.indexOf(':');
+                        if (i !== -1) pkg[line.substring(0, i).trim()] = line.substring(i + 1).trim();
                     });
-                    
-                    if (pkg.Package) {
-                        packages.push(pkg);
-                    }
+                    if (pkg.Package) packages.push(pkg);
                 });
 
                 if (packages.length === 0) {
-                    packageListDiv.innerHTML = `
-                        <div class="no-packages">
-                            Свитки пока пусты. Положите .deb файлы в папку <code>debs/</code> и запустите <code>python3 update.py</code>!
-                        </div>`;
+                    list.innerHTML = '<div class="cell loading">Пакетов пока нет. Добавьте .deb в папку <b>debs/</b> и запустите <b>python3 update.py</b>.</div>';
                     return;
                 }
 
-                // Render packages
-                packageListDiv.innerHTML = '';
-                packages.forEach(pkg => {
-                    const item = document.createElement('div');
-                    item.className = 'package-item';
-                    
-                    const name = pkg.Name || pkg.Package;
-                    const version = pkg.Version || '1.0';
-                    const id = pkg.Package;
-                    const desc = pkg.Description || 'Описание отсутствует.';
-                    
-                    item.innerHTML = `
-                        <div class="package-header">
-                            <span class="package-name">${escapeHtml(name)}</span>
-                            <span class="package-version">${escapeHtml(version)}</span>
-                        </div>
-                        <div class="package-id">${escapeHtml(id)}</div>
-                        <div class="package-desc">${escapeHtml(desc)}</div>
-                    `;
-                    packageListDiv.appendChild(item);
+                list.innerHTML = '';
+                packages.forEach(function (pkg) {
+                    const cell = document.createElement('div');
+                    cell.className = 'cell pkg';
+                    cell.innerHTML =
+                        '<div class="pkg-top"><span class="pkg-name">' + escapeHtml(pkg.Name || pkg.Package) +
+                        '</span><span class="pkg-ver">' + escapeHtml(pkg.Version || '1.0') + '</span></div>' +
+                        '<div class="pkg-id">' + escapeHtml(pkg.Package) + '</div>' +
+                        '<div class="pkg-desc">' + escapeHtml(pkg.Description || 'Описание отсутствует.') + '</div>';
+                    list.appendChild(cell);
                 });
             })
-            .catch(err => {
+            .catch(function (err) {
                 console.warn(err);
-                document.getElementById('package-list').innerHTML = `
-                    <div class="no-packages">
-                        Свитки пока пусты. Положите .deb файлы в папку <code>debs/</code> и запустите <code>python3 update.py</code>!
-                    </div>`;
+                document.getElementById('package-list').innerHTML =
+                    '<div class="cell loading">Пакетов пока нет. Добавьте .deb в папку <b>debs/</b> и запустите <b>python3 update.py</b>.</div>';
             });
-
-        function escapeHtml(str) {
-            return str
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;')
-                .replace(/'/g, '&#039;');
-        }
     </script>
 </body>
 </html>
