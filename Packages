@@ -25,10 +25,10 @@ Architecture: iphoneos-arm
 Version: 0.0.1
 Installed-Size: 316
 Filename: debs/com.necro.recydia_0.0.1_iphoneos-arm.deb
-Size: 101400
-MD5sum: 2ec1f24a261583fa253dbfadfcefbb5e
-SHA1: 9795cb860fb417cec672bd13c9c92ae335cb190c
-SHA256: f2244e16edb29ff70b005842e66e83446d3ae6efaab7afbd945488c24ba9f02c
+Size: 108398
+MD5sum: c6ac2c8a63bd34c66074a9df45544ada
+SHA1: af9612efc13b51ab25d081dbc45d2450bf423aa6
+SHA256: e00b05d42279dcc22079baa94eabb482b5cf5b372a0f28a653d739b37c0d143b
 
 Package: com.nekro.nekrowarp
 Name: NekroWARP
