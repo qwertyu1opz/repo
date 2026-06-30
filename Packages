@@ -13,6 +13,23 @@ MD5sum: 249019c9aa334997375e8213a4a3a217
 SHA1: 5e24d618f567e07ac0d5e37ee2bc903bd22db70d
 SHA256: 8583a0f7e58f8fdb648217387399e8c0efa8ad81a7b5c33d29d034fca687e6d7
 
+Package: com.necro.recydia
+Name: RE:Cydia
+Description: Lightweight native package manager for iOS 5-6, independent of Cydia.
+Maintainer: necro
+Author: necro <pornogay775lga@gmail.com>
+Section: Packaging
+Depends: dpkg, firmware (>= 5.0)
+Tag: purpose::console
+Architecture: iphoneos-arm
+Version: 0.1.0-2+debug
+Installed-Size: 172
+Filename: debs/com.necro.recydia_0.1.0-2+debug_iphoneos-arm.deb
+Size: 28224
+MD5sum: bf3459f860bb9b89043ad56b1774de65
+SHA1: 3c2a3871392a6297373d61458e5e5a9466919284
+SHA256: 3f1e4c2ca8cf769ce1c5294d5a01cc760e13544b5d0135613f6a18023ec0da8e
+
 Package: com.nekro.nekrowarp
 Name: NekroWARP
 Description: Native Cloudflare WARP / WireGuard tunnel client for iOS 5.x - 6.x
