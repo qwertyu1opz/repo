@@ -37,10 +37,10 @@ Author: QWERTYU1OPZ
 Section: Networking
 Depends: firmware (>= 5.0), firmware (<< 7.0)
 Architecture: iphoneos-arm
-Version: 0.0.10-3+debug
+Version: 0.0.10-4+debug
 Installed-Size: 536
-Filename: debs/com.nekro.nekrowarp_0.0.10-3+debug_iphoneos-arm.deb
-Size: 179188
-MD5sum: ec6081457cd85d1aff4375acdfc2c312
-SHA1: e65c4c748e2cee5ba667caa574c31804b368976c
-SHA256: 44c80223c793ba5b835f61566599fc5bd16c8bc04758a6244c64107773ec58f9
+Filename: debs/com.nekro.nekrowarp_0.0.10-4+debug_iphoneos-arm.deb
+Size: 179310
+MD5sum: 115eda79df8bb749d92047de61dc69f8
+SHA1: a925257eb72503581c6594344a11148f99c8a4e0
+SHA256: d351afe80e944e092deac52aad806ffeebb77b87d038cd538600729fa439d45a
