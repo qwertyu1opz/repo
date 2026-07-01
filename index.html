@@ -157,46 +157,6 @@
         }
         .cell.last, .cell:last-child { border-bottom: none; }
 
-        .cell p { margin: 0 0 8px; }
-        .cell p.last { margin-bottom: 0; }
-
-        .cell .label { font-weight: bold; color: #000; }
-        .cell .value { color: #8a8a8f; }
-
-        /* ===== Glossy "Add to Cydia" button ===== */
-        .cydia-btn {
-            display: block;
-            text-decoration: none;
-            text-align: center;
-            padding: 13px 14px;
-            font-size: 17px;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
-            border: 1px solid #2c4a78;
-            -webkit-border-radius: 10px;
-            border-radius: 10px;
-            background: -webkit-linear-gradient(top,
-                rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.05) 50%,
-                rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%), -webkit-linear-gradient(top, #5b8fd9, #2f5fad);
-            background: linear-gradient(to bottom,
-                rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.05) 50%,
-                rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%), linear-gradient(to bottom, #5b8fd9, #2f5fad);
-            -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.5);
-            box-shadow: 0 1px 2px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.5);
-        }
-        .cydia-btn:active {
-            background: -webkit-linear-gradient(top, #3f6cb0, #244e90);
-            background: linear-gradient(to bottom, #3f6cb0, #244e90);
-        }
-
-        .btn-group {
-            border: none;
-            background: none;
-            -webkit-box-shadow: none;
-            box-shadow: none;
-        }
-
         /* URL row with copy (float layout — no flexbox) */
         .url-cell { overflow: hidden; }
         .url-cell .url {
@@ -230,56 +190,6 @@
             background: linear-gradient(to bottom, #6f7889, #5b6373);
         }
 
-        /* Package cells (float layout) */
-        .pkg .pkg-top { overflow: hidden; }
-        .pkg .pkg-name { font-weight: bold; font-size: 16px; }
-        .pkg .pkg-ver {
-            float: right;
-            margin-left: 8px;
-            font-size: 12px;
-            color: #fff;
-            text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
-            background: -webkit-linear-gradient(top, #9aa3b2, #767f90);
-            background: linear-gradient(to bottom, #9aa3b2, #767f90);
-            border: 1px solid #6f7787;
-            -webkit-border-radius: 9px;
-            border-radius: 9px;
-            padding: 1px 8px;
-        }
-        .pkg .pkg-id {
-            font-family: "Courier New", monospace;
-            font-size: 12px;
-            color: #8a8a8f;
-            margin: 3px 0;
-        }
-        .pkg .pkg-desc { font-size: 14px; color: #333; }
-
-        .loading {
-            text-align: center;
-            color: #8a8a8f;
-            font-size: 14px;
-            font-style: italic;
-        }
-
-        /* Numbered instruction rows */
-        .step .num {
-            display: inline-block;
-            width: 22px; height: 22px;
-            line-height: 22px;
-            text-align: center;
-            margin-right: 8px;
-            -webkit-border-radius: 50%;
-            border-radius: 50%;
-            color: #fff;
-            font-size: 13px;
-            font-weight: bold;
-            text-shadow: 0 -1px 0 rgba(0,0,0,0.35);
-            background: -webkit-linear-gradient(top, #5b8fd9, #2f5fad);
-            background: linear-gradient(to bottom, #5b8fd9, #2f5fad);
-            -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
-        }
-
         footer {
             text-align: center;
             color: #5b6171;
@@ -303,50 +213,21 @@
                 <img src="CydiaIcon.png" alt="Icon" class="app-icon">
             </span>
             <div class="app-name">некромантия ios 5</div>
-            <div class="app-sub">сделано под пивом яблочной сектой</div>
-        </div>
-
-        <!-- Install -->
-        <div class="group-header">Установка репозитория</div>
-        <div class="group">
-            <div class="cell">
-                <p>Приватное хранилище твиков и тем для классических устройств Apple под управлением <span class="label">iOS 5</span> и выше.</p>
-                <p class="value last">Нажмите кнопку ниже на вашем устройстве, чтобы добавить источник в Cydia автоматически.</p>
-            </div>
-        </div>
-
-        <div class="group-header">&nbsp;</div>
-        <div class="group btn-group">
-            <a href="#" id="cydia-link" class="cydia-btn">Добавить в Cydia</a>
+            <div class="app-sub">Репозиторий Cydia для устройств на базе iOS 5</div>
         </div>
 
         <div class="group-header">Адрес источника</div>
         <div class="group">
             <div class="cell url-cell">
-                <button class="copy-btn" id="copy-btn">Копир.</button>
+                <button class="copy-btn" id="copy-btn">Копировать</button>
                 <span class="url" id="repo-url">https://qwertyu1opz.github.io/repo/</span>
             </div>
-        </div>
-
-        <!-- Packages -->
-        <div class="group-header">Доступные пакеты (.deb)</div>
-        <div class="group" id="package-list">
-            <div class="cell loading">Загрузка пакетов из репозитория…</div>
-        </div>
-
-        <!-- Manual -->
-        <div class="group-header">Ручная установка</div>
-        <div class="group">
-            <div class="cell step"><span class="num">1</span>Откройте <span class="label">Cydia</span> на устройстве.</div>
-            <div class="cell step"><span class="num">2</span>Перейдите во вкладку <span class="label">Источники</span> (Sources).</div>
-            <div class="cell step"><span class="num">3</span>Нажмите <span class="label">Правка</span>, затем <span class="label">Добавить</span>.</div>
-            <div class="cell step last"><span class="num">4</span>Введите адрес источника и нажмите <span class="label">Добавить источник</span>.</div>
         </div>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 некромантия ios 5 · сделано под пивом яблочной сектой</p>
+        <p>&copy; 2026 некромантия ios 5</p>
     </footer>
 
     <script>
@@ -374,8 +255,6 @@
             if (!endsWith(repoUrl, '/')) { repoUrl += '/'; }
 
             document.getElementById('repo-url').innerHTML = escapeHtml(repoUrl);
-            document.getElementById('cydia-link').href =
-                'cydia://url/action/add-repository?url=' + encodeURIComponent(repoUrl);
 
             /* Copy: use Clipboard API when available, otherwise select the text */
             var copyBtn = document.getElementById('copy-btn');
@@ -383,7 +262,7 @@
                 var urlEl = document.getElementById('repo-url');
                 var done = function (label) {
                     copyBtn.innerHTML = label;
-                    setTimeout(function () { copyBtn.innerHTML = 'Копир.'; }, 2000);
+                    setTimeout(function () { copyBtn.innerHTML = 'Копировать'; }, 2000);
                 };
                 if (navigator.clipboard && navigator.clipboard.writeText) {
                     navigator.clipboard.writeText(repoUrl).then(function () {
@@ -403,70 +282,6 @@
                     done('Скопируйте вручную');
                 }
             };
-
-            /* Load and render packages via XMLHttpRequest (no fetch in iOS 5) */
-            function showEmpty() {
-                document.getElementById('package-list').innerHTML =
-                    '<div class="cell loading last">Пакетов пока нет. Добавьте .deb в папку <b>debs/</b> и запустите <b>python3 update.py</b>.</div>';
-            }
-
-            function render(text) {
-                var list = document.getElementById('package-list');
-                var blocks = text.split('\n\n');
-                var packages = [];
-                var i, j;
-                for (i = 0; i < blocks.length; i++) {
-                    var block = blocks[i];
-                    if (!block.replace(/^\s+|\s+$/g, '')) { continue; }
-                    var pkg = {};
-                    var lines = block.split('\n');
-                    for (j = 0; j < lines.length; j++) {
-                        var line = lines[j];
-                        var c = line.indexOf(':');
-                        if (c !== -1) {
-                            var key = line.substring(0, c).replace(/^\s+|\s+$/g, '');
-                            var val = line.substring(c + 1).replace(/^\s+|\s+$/g, '');
-                            pkg[key] = val;
-                        }
-                    }
-                    if (pkg.Package) { packages.push(pkg); }
-                }
-
-                if (packages.length === 0) { showEmpty(); return; }
-
-                var html = '';
-                for (i = 0; i < packages.length; i++) {
-                    var p = packages[i];
-                    var lastClass = (i === packages.length - 1) ? ' last' : '';
-                    html +=
-                        '<div class="cell pkg' + lastClass + '">' +
-                            '<div class="pkg-top">' +
-                                '<span class="pkg-ver">' + escapeHtml(p.Version || '1.0') + '</span>' +
-                                '<span class="pkg-name">' + escapeHtml(p.Name || p.Package) + '</span>' +
-                            '</div>' +
-                            '<div class="pkg-id">' + escapeHtml(p.Package) + '</div>' +
-                            '<div class="pkg-desc">' + escapeHtml(p.Description || 'Описание отсутствует.') + '</div>' +
-                        '</div>';
-                }
-                list.innerHTML = html;
-            }
-
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState !== 4) { return; }
-                if (xhr.status === 200 || xhr.status === 0) {
-                    try { render(xhr.responseText); }
-                    catch (e) { showEmpty(); }
-                } else {
-                    showEmpty();
-                }
-            };
-            try {
-                xhr.open('GET', 'Packages', true);
-                xhr.send(null);
-            } catch (e) {
-                showEmpty();
-            }
         })();
     </script>
 </body>

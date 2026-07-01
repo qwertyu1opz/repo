@@ -22,13 +22,13 @@ Section: Packaging
 Depends: dpkg, firmware (>= 5.0)
 Tag: purpose::console
 Architecture: iphoneos-arm
-Version: 0.0.3
+Version: 0.0.4
 Installed-Size: 348
-Filename: debs/com.necro.recydia_0.0.3_iphoneos-arm.deb
-Size: 129064
-MD5sum: 9ddf4eb04f5f17631d3f57ea7f76711b
-SHA1: 1ce675af465388ca6c1dfa2b966f6800049380a1
-SHA256: ec8ff816c7dc3a1d71e1d6283ce7a8a5993d0b163d973d3a3379d4031e20d07f
+Filename: debs/com.necro.recydia_0.0.4_iphoneos-arm.deb
+Size: 130246
+MD5sum: d7a02d030bc33e83e40b9ea8b6388147
+SHA1: f0a75df3edf1957189b16125b6b9ae09cd34da43
+SHA256: a56a6fe59087803ea98d0e8705957a76cbdf4ba9e03d3491ef4cb390d8cf59c6
 
 Package: com.nekro.nekrowarp
 Name: NekroWARP

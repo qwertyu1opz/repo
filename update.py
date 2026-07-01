@@ -5,6 +5,8 @@ import gzip
 import bz2
 import hashlib
 import tarfile
+import re
+
 
 REPO_NAME = "некромантия ios 5"
 REPO_DESCRIPTION = "Cydia repository for iOS 5 (некромантия ios 5)"
@@ -61,7 +63,6 @@ def extract_control_info(deb_path):
                             if control_file:
                                 return control_file.read().decode('utf-8', errors='ignore')
     return None
-import re
 
 def version_key(v_str):
     parts = re.split(r'[^a-zA-Z0-9]', v_str)
