@@ -168,27 +168,6 @@
             word-break: break-all;
             padding-top: 5px;
         }
-        .copy-btn {
-            float: right;
-            margin-left: 10px;
-            font-size: 12px;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
-            border: 1px solid #6f7787;
-            -webkit-border-radius: 7px;
-            border-radius: 7px;
-            padding: 6px 11px;
-            background: -webkit-linear-gradient(top, #9aa3b2, #767f90);
-            background: linear-gradient(to bottom, #9aa3b2, #767f90);
-            -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
-            cursor: pointer;
-        }
-        .copy-btn:active {
-            background: -webkit-linear-gradient(top, #6f7889, #5b6373);
-            background: linear-gradient(to bottom, #6f7889, #5b6373);
-        }
 
         footer {
             text-align: center;
@@ -213,13 +192,12 @@
                 <img src="CydiaIcon.png" alt="Icon" class="app-icon">
             </span>
             <div class="app-name">некромантия ios 5</div>
-            <div class="app-sub">Репозиторий Cydia для устройств на базе iOS 5</div>
+            <div class="app-sub">сделано под пивом яблочной сектой</div>
         </div>
 
         <div class="group-header">Адрес источника</div>
         <div class="group">
             <div class="cell url-cell">
-                <button class="copy-btn" id="copy-btn">Копировать</button>
                 <span class="url" id="repo-url">https://qwertyu1opz.github.io/repo/</span>
             </div>
         </div>
@@ -227,7 +205,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 некромантия ios 5</p>
+        <p>&copy; 2026 некромантия ios 5 · сделано под пивом яблочной сектой</p>
     </footer>
 
     <script>
@@ -256,32 +234,6 @@
 
             document.getElementById('repo-url').innerHTML = escapeHtml(repoUrl);
 
-            /* Copy: use Clipboard API when available, otherwise select the text */
-            var copyBtn = document.getElementById('copy-btn');
-            copyBtn.onclick = function () {
-                var urlEl = document.getElementById('repo-url');
-                var done = function (label) {
-                    copyBtn.innerHTML = label;
-                    setTimeout(function () { copyBtn.innerHTML = 'Копировать'; }, 2000);
-                };
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(repoUrl).then(function () {
-                        done('Готово');
-                    });
-                    return;
-                }
-                /* iOS 5 fallback: select the URL so the user can tap Copy */
-                try {
-                    var range = document.createRange();
-                    range.selectNodeContents(urlEl);
-                    var sel = window.getSelection();
-                    sel.removeAllRanges();
-                    sel.addRange(range);
-                    done('Выделено');
-                } catch (e) {
-                    done('Скопируйте вручную');
-                }
-            };
         })();
     </script>
 </body>
