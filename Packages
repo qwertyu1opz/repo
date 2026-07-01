@@ -1,23 +1,23 @@
 Package: com.example.filastore
 Name: FilaStore
-Description: A clean App-Store-style .ipa manager: search archive.org and install over HTTPS, sideload local or URL packages as removable apps, browse your library and uninstall (iOS 5)
-Author: you
+Description: experemental
+Author: QWERTYU1OPZ
 Section: Applications
 Depends: firmware (>= 5.0), unzip, com.autopear.installipa
 Architecture: iphoneos-arm
-Version: 0.0.8-2+debug
-Installed-Size: 948
-Filename: debs/filastore-0.0.8.deb
-Size: 730836
-MD5sum: 249019c9aa334997375e8213a4a3a217
-SHA1: 5e24d618f567e07ac0d5e37ee2bc903bd22db70d
-SHA256: 8583a0f7e58f8fdb648217387399e8c0efa8ad81a7b5c33d29d034fca687e6d7
+Version: 0.0.9
+Installed-Size: 808
+Filename: debs/com.example.filastore_0.0.9_iphoneos-arm.deb
+Size: 696542
+MD5sum: 005625bfd67f357bf0d99c5b681c0fde
+SHA1: 5b78c3c34fe477ee533b6e050e48b928ef154e72
+SHA256: f3a3cb4a09eb067e39dc1f19d705919598c82e921ae969c82af43e3dcb75c75d
 
 Package: com.necro.recydia
 Name: RE:Cydia
 Description: Lightweight native package manager for iOS 5-6, independent of Cydia.
-Maintainer: necro
-Author: necro <pornogay775lga@gmail.com>
+Maintainer: QWERTYU1OPZ
+Author: QWERTYU1OPZ
 Section: Packaging
 Depends: dpkg, firmware (>= 5.0)
 Tag: purpose::console
@@ -25,10 +25,10 @@ Architecture: iphoneos-arm
 Version: 0.0.2
 Installed-Size: 316
 Filename: debs/com.necro.recydia_0.0.2_iphoneos-arm.deb
-Size: 109856
-MD5sum: 2fb935c6db59e71a115ef17e182f9ba7
-SHA1: 195f7d1f8387573a60975ca069d5a596c52fb843
-SHA256: c2666720e3c28c63e7bcb241b048f5ef2231c5f0da4954a8dd7338d0d34e1ddf
+Size: 111000
+MD5sum: 4d1a53935d14565faeea9f8f11a501a8
+SHA1: f6f77ec0cd986e7c6dd1aaf7bf139656a3c84629
+SHA256: 9310763ea266c8a0336d8efc2f662b99c224d54b9729b22ecb50340677418d24
 
 Package: com.nekro.nekrowarp
 Name: NekroWARP
@@ -37,10 +37,10 @@ Author: QWERTYU1OPZ
 Section: Networking
 Depends: firmware (>= 5.0), firmware (<< 7.0)
 Architecture: iphoneos-arm
-Version: 0.0.10-4+debug
-Installed-Size: 536
-Filename: debs/com.nekro.nekrowarp_0.0.10-4+debug_iphoneos-arm.deb
-Size: 179310
-MD5sum: 115eda79df8bb749d92047de61dc69f8
-SHA1: a925257eb72503581c6594344a11148f99c8a4e0
-SHA256: d351afe80e944e092deac52aad806ffeebb77b87d038cd538600729fa439d45a
+Version: 0.0.11
+Installed-Size: 416
+Filename: debs/com.nekro.nekrowarp_0.0.11_iphoneos-arm.deb
+Size: 151362
+MD5sum: 10021a6a2d6c182df21dca09690da9ed
+SHA1: f27498e558830fa5333bc3a97275585438a644c7
+SHA256: d5808e482a8b54d97dcc20afafb1b99330643e6f4fcaaa60d93d6d859e9fe174
