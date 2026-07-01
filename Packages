@@ -20,10 +20,10 @@ Author: QWERTYU1OPZ
 Section: Networking
 Depends: firmware (>= 5.0), firmware (<< 11.0)
 Architecture: iphoneos-arm
-Version: 0.0.18
+Version: 0.0.19
 Installed-Size: 448
-Filename: debs/com.nekro.nekrowarp_0.0.18_iphoneos-arm.deb
-Size: 156686
-MD5sum: 8e05e1b708fd8a64c8811f5d0d910cb8
-SHA1: 0f04d779f0133e0f88244bf753b4a30ccd5052a9
-SHA256: 7fce58225ecf3260253afc58fdb3ea3781b383a436d674221b46477385d82efc
+Filename: debs/com.nekro.nekrowarp_0.0.19_iphoneos-arm.deb
+Size: 156550
+MD5sum: 8f231a7daf12b39fbcac72d25b102666
+SHA1: 85e7504535efe0a463836f3dd0be5244d172deba
+SHA256: 733a09dbc3818b5fd4a020a440e4a5e34c08c13050fe55e3f25f867d7dfdd0ff
