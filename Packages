@@ -15,15 +15,15 @@ SHA256: f3a3cb4a09eb067e39dc1f19d705919598c82e921ae969c82af43e3dcb75c75d
 
 Package: com.nekro.nekrowarp
 Name: NekroWARP
-Description: Native Cloudflare WARP / WireGuard tunnel client for iOS 5.x - 10.x
+Description: native WARP/WireGuard tunnel for jailbroken iOS 5.x
 Author: QWERTYU1OPZ
 Section: Networking
 Depends: firmware (>= 5.0), firmware (<< 11.0)
 Architecture: iphoneos-arm
-Version: 0.0.19
-Installed-Size: 448
-Filename: debs/com.nekro.nekrowarp_0.0.19_iphoneos-arm.deb
-Size: 156550
-MD5sum: 8f231a7daf12b39fbcac72d25b102666
-SHA1: 85e7504535efe0a463836f3dd0be5244d172deba
-SHA256: 733a09dbc3818b5fd4a020a440e4a5e34c08c13050fe55e3f25f867d7dfdd0ff
+Version: 0.0.19-21+debug
+Installed-Size: 3780
+Filename: debs/com.nekro.nekrowarp_0.0.19-21+debug_iphoneos-arm.deb
+Size: 1720210
+MD5sum: f89acf98ada88500938c8e6ef4ea866b
+SHA1: af24a11b30714fa1cb5fbc5f929e6261a196fa3a
+SHA256: 70e9532aa28e15fd1a345691183a727b9adc28f95bd05e430c7a75077c9ca102
