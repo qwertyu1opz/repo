@@ -5,13 +5,13 @@ Author: QWERTYU1OPZ
 Section: Applications
 Depends: firmware (>= 5.0), unzip, com.autopear.installipa
 Architecture: iphoneos-arm
-Version: 0.0.9
-Installed-Size: 808
-Filename: debs/com.example.filastore_0.0.9_iphoneos-arm.deb
-Size: 696542
-MD5sum: 005625bfd67f357bf0d99c5b681c0fde
-SHA1: 5b78c3c34fe477ee533b6e050e48b928ef154e72
-SHA256: f3a3cb4a09eb067e39dc1f19d705919598c82e921ae969c82af43e3dcb75c75d
+Version: 0.1.0-2+debug
+Installed-Size: 5764
+Filename: debs/filastore-0.1.0.deb
+Size: 1998852
+MD5sum: 6ca57a6788ce38231c97dd2e2d56e023
+SHA1: a4cd1e31f4e0ecb23ec604665b30d50c9614b50f
+SHA256: 14a9dad42cfb4667f9f60020375960332633658755ab06caf597395679af0883
 
 Package: com.nekro.nekrowarp
 Name: NekroWARP
