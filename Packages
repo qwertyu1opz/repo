@@ -27,3 +27,19 @@ Size: 1720942
 MD5sum: cfc3b3c855c223118e003a7b5045de24
 SHA1: 7f50654e7654362d1df8e049c6fda39aafc71728
 SHA256: 59bd5de57041cf1b1cf9fbc1f4e98bbc8aa48665f65c70889127d31833cc993f
+
+Package: fsrgteam.legacygram
+Name: LegacyGram
+Version: 0.0.3-1
+Architecture: iphoneos-arm
+Description: Telegram by FSRG Team
+Section: Utilities
+Priority: optional
+Maintainer: Local Package
+Depends: firmware (>= 6.0), coreutils
+Tag: role::hacker
+Filename: debs/fsrgteam.legacygram_0.0.3-1_iphoneos-arm.deb
+Size: 30439642
+MD5sum: 565412d4706b7a17afca5abc143dd1c0
+SHA1: 9cac7a1b9ba58778733b3ee7471f7eab8e1df7c6
+SHA256: 52686897fdc3a4b643489d08a8fe6cf228e0a538d1675a290549d4c6c240450e
