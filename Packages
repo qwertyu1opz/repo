@@ -39,7 +39,7 @@ Maintainer: Local Package
 Depends: firmware (>= 6.0), coreutils
 Tag: role::hacker
 Filename: debs/fsrgteam.legacygram_0.0.4-1_iphoneos-arm.deb
-Size: 20272952
-MD5sum: 04e17555001aa3b793e97b3d8199934c
-SHA1: 04203d10ada15de2913b85c79cd922647093d5bd
-SHA256: 9f0df0700515cb373c1d9e7db7ffd9dc43e57d69bb9466d9a368f8175088d212
+Size: 20634758
+MD5sum: 66f996862a846b9eb006c773b77a40e0
+SHA1: 13a2761c5439485c15dc4ab2ff5ed516f08ba102
+SHA256: 92747c0c135b2cdb4b3929fb797bd2efd2aacf834f7f031cf64eaeadb42ea65b
