@@ -43,3 +43,20 @@ Size: 20634758
 MD5sum: 66f996862a846b9eb006c773b77a40e0
 SHA1: 13a2761c5439485c15dc4ab2ff5ed516f08ba102
 SHA256: 92747c0c135b2cdb4b3929fb797bd2efd2aacf834f7f031cf64eaeadb42ea65b
+
+Package: fsrgteam.legacygram-components
+Name: LegacyGram Components
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: Privileged helpers for LegacyGram: the FuckDPI tunnel and the in-app package installer. Install this once; LegacyGram itself can then be updated from a plain .ipa.
+Section: Networking
+Priority: optional
+Maintainer: FSRG Team
+Author: FSRG Team
+Depends: firmware (>= 5.0), coreutils
+Tag: role::hacker
+Filename: debs/fsrgteam.legacygram-components_1.0.0_iphoneos-arm.deb
+Size: 1793254
+MD5sum: b97c8a3e65baf0e4a499ee2caf03e082
+SHA1: 58367cc62854116c3ace52bc52a769e9e931712c
+SHA256: 203da8616c083b896f2fb34bcec345f21d9b4841730ef14031d0a71f10db3694
