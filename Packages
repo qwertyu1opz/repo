@@ -30,7 +30,7 @@ SHA256: 59bd5de57041cf1b1cf9fbc1f4e98bbc8aa48665f65c70889127d31833cc993f
 
 Package: com.qwertyu1opz.dante
 Name: Dante
-Version: 1.2
+Version: 1.2.1
 Architecture: iphoneos-arm
 Description: Internet jailbreak
 Author: QWERTYU1OPZ
@@ -40,11 +40,11 @@ Depends: firmware (>= 5.0)
 Conflicts: com.dante.internetfixer
 Replaces: com.dante.internetfixer
 Installed-Size: 5229
-Filename: debs/com.qwertyu1opz.dante_1.2_iphoneos-arm.deb
-Size: 2473572
-MD5sum: 576cc46ff45bf8a18afd9a4cc32189e8
-SHA1: 0b0a0655e0dfb688a6be6e0b81d6af7292f59b1b
-SHA256: 1b5717b4b2538f28e69ec8609be99f1d41454edc078d1a8241da433d5370b4cf
+Filename: debs/com.qwertyu1opz.dante_1.2.1_iphoneos-arm.deb
+Size: 2474266
+MD5sum: 3d117a5bb9e67b412cf0f35555108956
+SHA1: 53b7d3fbbaf6ca89734f561e487556326429b232
+SHA256: da9aeba9ef8719f834798854b66725053c0a41acce88282223cbcedce4ced18c
 
 Package: fsrgteam.legacygram
 Name: LegacyGram
